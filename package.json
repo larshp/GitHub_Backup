@@ -1,6 +1,6 @@
 {
   "name": "@larshp/github_backup",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "GitHub Backup utility",
   "main": "src/cli.js",
   "scripts": {
