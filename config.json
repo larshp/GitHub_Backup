@@ -1,0 +1,4 @@
+{
+  "from": ["/users/larshp", "/orgs/abapGit", "/orgs/dotabap"],
+  "to": ["/tmp/"]
+}
