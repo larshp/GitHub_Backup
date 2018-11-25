@@ -9,7 +9,7 @@ module.exports = class Backup {
     this.github = new GitHub(key);
   }
 
-  checkDir(to) {
+  _checkDir(to) {
     let stat = fs.lstatSync(to);
     if (!stat.isDirectory()) {
       throw "dir " + to + " does not exist";
@@ -17,7 +17,7 @@ module.exports = class Backup {
   }
 
   run(from, to) {
-    this.checkDir(to);
+    this._checkDir(to);
 
     console.log("Backup: " + from + " to " + to);
 
@@ -25,12 +25,12 @@ module.exports = class Backup {
     for(let repo of repos) {
       if(!repo.fork) {
         console.log("\t" + repo.name);
-        this.runRepo(to, from, repo.name, repo.clone_url)
+        this._runRepo(to, from, repo.name, repo.clone_url)
       }
     }
   }
 
-  runRepo(to, from, name, git) {
+  _runRepo(to, from, name, git) {
     let dir = to + "github_backup" + from + "/" + name + "/" + new Date().toISOString().substr(0,7) + "/" + new Date().toISOString().substr(8,2) + "/";
     let cwd = dir + "git/";
     fsextra.ensureDirSync(cwd);

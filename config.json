@@ -1,4 +1,13 @@
 {
-  "from": ["/users/larshp", "/orgs/abapGit", "/orgs/dotabap"],
-  "to": ["/tmp/"]
+  "from": [
+    "/users/larshp",
+    "/orgs/abapGit",
+    "/orgs/dotabap",
+    "/orgs/INVIXO",
+    "/orgs/abapGit-tests",
+    "/orgs/abaplint"
+  ],
+  "to": [
+    "/tmp/"
+  ]
 }

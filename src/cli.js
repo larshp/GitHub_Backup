@@ -16,6 +16,7 @@ class Run {
         backup.run(from, to);
       }
     }
+    console.log("Done, " + new Date().toISOString());
   }
 }
 
