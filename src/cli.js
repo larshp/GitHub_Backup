@@ -1,5 +1,6 @@
 "use strict";
 let fs = require("fs");
+const childProcess = require("child_process");
 let Backup = require("./backup.js");
 
 class Run {
@@ -11,12 +12,19 @@ class Run {
     let config = JSON.parse(fs.readFileSync(configFile, "utf8"));
     let backup = new Backup(key);
 
-    for(let from of config.from) {
-      for(let to of config.to) {
-        backup.run(from, to);
+    while(true) {
+      for(let from of config.from) {
+        for(let to of config.to) {
+          backup.run(from, to);
+        }
       }
-    }
-    console.log("Done, " + new Date().toISOString());
+      console.log("\nDone, " + new Date().toISOString() + "\n");
+      childProcess.execSync("df -h", {stdio:[0,1,2]});
+// todo, show remaining number of API calls allowed
+
+      console.log("\nSleeping 24h");
+      childProcess.execSync("sleep 24h", {stdio:[0,1,2]});
+  }
   }
 }
 

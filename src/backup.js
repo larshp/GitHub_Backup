@@ -25,15 +25,17 @@ module.exports = class Backup {
     for(let repo of repos) {
       if(!repo.fork) {
         console.log("\t" + repo.name);
-        this._runRepo(to, from, repo.name, repo.clone_url)
+        this._runRepo(to, repo.full_name, repo.clone_url);
       }
     }
   }
 
-  _runRepo(to, from, name, git) {
-    let dir = to + "github_backup" + from + "/" + name + "/" + new Date().toISOString().substr(0,7) + "/" + new Date().toISOString().substr(8,2) + "/";
+  _runRepo(to, full_name, git) {
+    let dir = to + "github_backup/" + full_name + "/" + new Date().toISOString().substr(0,7) + "/" + new Date().toISOString().substr(8,2) + "/";
     let cwd = dir + "git/";
     fsextra.ensureDirSync(cwd);
     childProcess.execSync("git clone " + git + " " + cwd, {cwd: cwd, stdio:[0,1,2]});
+
+//    fs.writeFileSync(dir + "traffic.json", JSON.stringify(this.github.getTraffic(full_name), false, 2));
   }
 }
