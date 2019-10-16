@@ -1,6 +1,7 @@
 {
   "name": "@larshp/github_backup",
   "version": "0.1.0",
+  "private": true,
   "description": "GitHub Backup utility",
   "main": "src/cli.js",
   "scripts": {
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/larshp/GitHub_Backup#readme",
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "sync-request": "^6.0.0"
+    "fs-extra": "^8.1.0",
+    "sync-request": "^6.1.0"
   }
 }

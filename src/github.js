@@ -16,7 +16,19 @@ module.exports = class GitHub {
   }
 
   listRepositories(user) {
-    return this._fetch(user + "/repos?per_page=100");
+    let list = [];
+    let page = 1;
+
+    while (true) {
+      const fetched = this._fetch(user + "/repos?page=" + page + "&per_page=100");
+      page = page + 1;
+      list = list.concat(fetched);
+      if (fetched.length < 100) {
+        break;
+      }
+    }
+
+    return list;
   }
 
   /* push access required
