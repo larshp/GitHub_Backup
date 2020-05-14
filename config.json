@@ -4,10 +4,12 @@
     "/orgs/abapGit",
     "/orgs/dotabap",
     "/orgs/INVIXO",
+    "/orgs/open-abap",
     "/orgs/abapGit-tests",
     "/orgs/abaplint"
   ],
   "to": [
-    "/tmp/"
+    "e:\\",
+    "d:\\"
   ]
 }
