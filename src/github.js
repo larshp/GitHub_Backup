@@ -8,6 +8,7 @@ module.exports = class GitHub {
 
   _fetch(path) {
     const url = "https://api.github.com" + path;
+    console.log(url);
     let buffer = request("GET", url,
       {"headers": {"user-agent": "larshp/github_backup",
         "Authorization": "token " + this.key
