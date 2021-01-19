@@ -1,12 +1,13 @@
 {
   "from": [
     "/users/larshp",
+    "/orgs/abap-openapi",
     "/orgs/abapGit",
-    "/orgs/dotabap",
-    "/orgs/open-abap",
-    "/orgs/heliconialabs",
     "/orgs/abapGit-tests",
-    "/orgs/abaplint"
+    "/orgs/abaplint",
+    "/orgs/dotabap",
+    "/orgs/heliconialabs",
+    "/orgs/open-abap"
   ],
   "to": [
     "e:\\",
